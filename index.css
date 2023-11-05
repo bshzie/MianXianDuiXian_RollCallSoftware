@@ -231,7 +231,7 @@ li {
     animation-iteration-count: infinite; */
     background-size: 200% auto;
     background-image: linear-gradient(to right, #f782a9 0%, #b48bd9 10%, #4ed9ab 40%, #ffd26b 60%, #f782a9 90%, #f782a9 100%);
-    animation: shine 10s linear infinite;
+    animation: shine 6s linear infinite;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
