@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imgs/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="index.css">
+    <title>类 面向对象</title>
+</head>
+
+<body>
+    <div id="app">
+
+        <!-- 网页头部 -->
+        <div class="head">
+
+            <!-- 网页头部左边的logo -->
+            <div class="logo">
+                <a href="index.html"></a>
+                <div class="logo_label">MianXianDuiXian</div>
+            </div>
+
+            <!-- 网页头部右边的导航栏 -->
+            <div class="nav">
+                <ul>
+                    <li>
+                        <a href="index.html">首页</a>
+                    </li>
+                    <li @mouseover="clearTime(), nav_2_drop = true" @mouseleave="isDrop">
+                        <a href="#">下载</a>
+                        <ul v-show="nav_2_drop" class="download_drop" @mouseleave="isDrop">
+                            <li><a href="#">最新版</a></li>
+                            <!-- <li><a href="#">色彩版</a></li> -->
+                            <li><a href="#">稳定版</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">使用</a>
+                    </li>
+                    <li>
+                        <a href="https://bshzie.github.io/ycytest/" target="_blank">了解作者</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 对移动端导航栏进行的优化 -->
+            <div class="nav_mobile_phone">
+                <div @click="nav_mobile_drop = !nav_mobile_drop" class="nav_ico iconfont">&#xe600;</div>
+                <ul v-show="nav_mobile_drop">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="#">下载</a></li>
+                    <li><a href="#">使用</a></li>
+                    <li><a href="#">反馈</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- 网页主内容 -->
+        <div class="main" @click="nav_mobile_drop = false">
+
+            <!-- 百抽必中 -->
+            <div class="draw">a hundred draws will win</div>
+            <a class="downloadButton" href="#">下载</a>
+
+            <!-- 介绍软件的特色功能 -->
+            <!-- 点名不重复，支持最大化，记录永久保存，支持个性化，优化触屏操作 -->
+            <div class="Mode">
+                <div class="mode_box">
+                    <div class="ico iconfont">&#xe7bf;</div>
+                    <div class="text">点名不再重复，点完必中，老师再也不用担心点不到我啦</div>
+                </div>
+                <div class="mode_box">
+                    <div class="ico iconfont">&#xe60e;</div>
+                    <div class="text">支持全屏最大化，双击或轻点，后排的同学也不用担心看不清哦</div>
+                </div>
+                <div class="mode_box">
+                    <div class="ico iconfont">&#xe614;</div>
+                    <div class="text">新增个性化功能，只需稍稍设置，我的软件，就是我的风格</div>
+                </div>
+            </div>
+
+            <!-- 软件界面 -->
+            <div class="app_form">
+                <div class="app_controlbar">
+                    <div class="app_logo">
+                        <div class="app_logo_img"></div>
+                        <div class="app_logo_text">点名软件</div>
+                    </div>
+                    <div class="app_control">
+                        <div class="btn mini_btn"><span></span></div>
+                        <div class="btn max_btn"><span></span></div>
+                        <div class="btn close_btn"><span>+</span></div>
+                    </div>
+                </div>
+
+                <!-- 深色模式和浅色模式切换 -->
+                <div :class="isDarkMode?'app_form_panel_darkMode':'app_form_panel'">
+                    <div class="app_top_buttons">
+                        <ul class="app_top_buttons_left">
+                            <li>总人数: 99</li>
+                            <li>剩余数: 99</li>
+                            <li>清空记录</li>
+                            <li>了解作者</li>
+                        </ul>
+
+                        <ul class="app_top_buttons_right">
+                            <li>个性化</li>
+                            <li @click="modeChange(),isDarkMode=!isDarkMode">{{mode}}</li>
+                        </ul>
+                    </div>
+                    <div class="app_name">
+                        <span>小明</span>
+                        <span>开始</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 网页底部 -->
+        <div class="footer">
+            小小利器，让每一位学生都乖乖听话
+        </div>
+        <!-- 小小利器，让每一位学生都乖乖听话 -->
+
+    </div>
+    <!-- 导入Vue框架 -->
+    <script src="lib/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                // nav: ['首页', '下载', '使用', '了解作者'],
+                mode: '浅色模式',
+                nav_2_drop: false,
+                nav_mobile_drop: false,
+                delayTime: null,
+                isDarkMode: false
+            },
+            methods: {
+                isDrop() {
+                    // console.log('isDrop')
+                    this.delayTime = setTimeout(() => {
+                        this.nav_2_drop = false;
+                    }, 400)
+                },
+                clearTime() {
+                    clearTimeout(this.delayTime)
+                    this.nav_2_drop = true
+                    // console.log('clear')
+                },
+                modeChange(){
+                    if(this.isDarkMode){
+                        this.mode='浅色模式'
+                    }else{
+                        this.mode='深色模式'
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

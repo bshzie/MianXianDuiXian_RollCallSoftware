@@ -1,0 +1,51 @@
+{
+  "id": "4306510",
+  "name": "点名软件网站",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "5013",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "1181190",
+      "name": "工具1",
+      "font_class": "gongju1",
+      "unicode": "e6ae",
+      "unicode_decimal": 59054
+    },
+    {
+      "icon_id": "11125633",
+      "name": "文章",
+      "font_class": "16",
+      "unicode": "e625",
+      "unicode_decimal": 58917
+    },
+    {
+      "icon_id": "19019945",
+      "name": "网站_fill",
+      "font_class": "website_fill",
+      "unicode": "e7bf",
+      "unicode_decimal": 59327
+    },
+    {
+      "icon_id": "27253678",
+      "name": "账号",
+      "font_class": "zhanghao",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "7313024",
+      "name": "放大",
+      "font_class": "fangda-",
+      "unicode": "e60e",
+      "unicode_decimal": 58894
+    }
+  ]
+}

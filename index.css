@@ -1,0 +1,647 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('icos/iconfont.woff2?t=1658739042788') format('woff2'),
+        url('icos/iconfont.woff?t=1658739042788') format('woff'),
+        url('icos/iconfont.ttf?t=1658739042788') format('truetype');
+}
+
+.iconfont {
+    cursor: default;
+    text-align: center;
+    font-family: "iconfont" !important;
+    font-size: 50px;
+    font-style: normal;
+    color: rgb(45, 44, 44);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: all .3s;
+}
+
+/* 全局样式 */
+body {
+    background-color: #5bb7b9;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+/* 头部样式 */
+.head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: #6ac0c2;
+    transition: all .3s;
+}
+
+.head:hover {
+    background-color: #7ecfd0;
+}
+
+/* 头部样式logo部分 */
+.logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    float: left;
+    margin-left: 60px;
+    width: 190px;
+    height: 100%;
+    /* background-color: #fff; */
+}
+
+.logo a {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(imgs/logo.jpg);
+    background-size: contain;
+}
+
+.logo .logo_label {
+    display: inline-block;
+    color: #ececec;
+    cursor: default;
+    font-weight: 100;
+    font-size: 16px;
+}
+
+/* 头部样式导航栏部分 */
+.nav {
+    float: right;
+    margin-right: 60px;
+}
+
+.nav>ul>li {
+    float: left;
+    position: relative;
+}
+
+.nav a {
+    display: inline-block;
+    margin-right: 6px;
+    width: 70px;
+    height: 40px;
+    color: #ffffff;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 13px;
+    transition: all .6s;
+}
+
+.nav a:hover {
+    color: #fffcfc;
+    background-color: #5bb7b9;
+}
+
+
+/* 头部样式导航栏部分对移动端导航栏进行优化 */
+.nav_mobile_phone {
+    position: relative;
+    display: none;
+}
+
+.nav_mobile_phone ul {
+    position: absolute;
+}
+
+.nav_mobile_phone .nav_ico {
+    margin-right: 25px;
+    font-size: 28px;
+    color: #fff;
+}
+
+.nav_mobile_phone ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100px;
+    height: 220px;
+    margin-left: -55px;
+    margin-top: 35px;
+    border-radius: 13px;
+    background-color: #7ecfd0;
+}
+
+.nav_mobile_phone ul a {
+    display: inline-block;
+    width: 70px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 13px;
+    color: #fff;
+    transition: all .6s;
+    /* background-color: #c5de3a; */
+}
+
+.nav_mobile_phone ul a:hover {
+    background-color: #5bb7b9;
+}
+
+
+/* 头部样式导航栏下拉菜单部分 */
+.download_drop {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    width: 70px;
+    /* height: 150px; */
+    height: 100px;
+    border-radius: 13px;
+    background-color: rgb(68, 198, 198);
+}
+
+.download_drop li a {
+    width: 55px;
+    height: 35px;
+    margin: 0;
+    /* background-color: #fff; */
+    text-align: center;
+    line-height: 35px;
+    font-size: 13px;
+}
+
+/* 网页主内容样式 */
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* height: 600px; */
+    /* background-color: #4fd8d6; */
+}
+
+/* 淡出动画 */
+/* 使用这个动画会有bug 下拉菜单不能点击 */
+/* @keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#fadeIn {
+    animation: fade-in ease 1.5s;
+    animation-fill-mode: forwards;
+} */
+
+/* 网页主内容样式 “百抽必中” */
+.main .draw {
+    margin-top: 18vh;
+    /* width: 100%; */
+    /* height: 300px; */
+    border-radius: 30px;
+    line-height: 300px;
+    text-align: center;
+    font-size: 73px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS';
+    color: #ffffff;
+    cursor: default;
+    transition: all .6s;
+    /* animation: 12s draw cubic-bezier(1, 1, 0, 0);
+    animation-direction: alternate;
+    animation-iteration-count: infinite; */
+    background-size: 200% auto;
+    background-image: linear-gradient(to right, #f782a9 0%, #b48bd9 10%, #4ed9ab 40%, #ffd26b 60%, #f782a9 90%, #f782a9 100%);
+    animation: shine 10s linear infinite;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* @keyframes draw {
+    0% {
+        color: #ffffff;
+    }
+
+    20% {
+        color: #df3b38;
+    }
+
+    40% {
+        color: #c5de3a;
+    }
+
+    60% {
+        color: #60d848;
+    }
+
+    80% {
+        color: #2c62d6;
+    }
+
+    100% {
+        color: #823fd3;
+    }
+} */
+
+
+/* .main .draw:hover {
+    text-shadow: 8px 8px 16px #5aa3a5;
+} */
+
+/* 网页主内容 下载按钮 */
+.main .downloadButton {
+    width: 140px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    background-color: rgb(68, 198, 198);
+    font-size: 18px;
+    font-weight: 600;
+    color: #ececec;
+    border-radius: 28px;
+    transition: all .6s;
+
+    /* background-size: 200% auto;
+    background-image: linear-gradient(to left,#f782a9 0%,#b48bd9 10%,#4ed9ab 40%,#ffd26b 60%,#f782a9 90%,#f782a9 100%);
+    animation: shine 10s linear infinite; */
+}
+
+.main .downloadButton:hover {
+    width: 160px;
+    color: #000000;
+    background-color: rgb(238, 238, 238);
+    box-shadow: 1px 1px 50px #d8e8ec;
+}
+
+/* 网页主内容 对软件的优点介绍 */
+.main .Mode {
+    margin-top: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 1000px;
+    transition: all .3s;
+    background-color: #6ac0c2;
+}
+
+.main .Mode .ico {
+    font-size: 96px;
+    transition: all .8s;
+}
+
+.main .Mode .ico:hover {
+    transform: rotate(360deg);
+}
+
+
+.main .Mode .mode_box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 700px;
+    height: 260px;
+    background-color: #90ddea;
+    border-radius: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 100;
+    cursor: default;
+    transition: all .6s;
+}
+
+.main .Mode .mode_box:hover {
+    /* width: 800px; */
+    box-shadow: 8px 8px 16px #5aa3a5;
+}
+
+/* 网页主内容 软件界面 */
+.main .app_form {
+    margin-top: 18vh;
+    width: 811px;
+    height: 503px;
+    cursor: default;
+    background-color: #efefef;
+    border-radius: 9px;
+    border: rgb(161, 161, 161) solid 1.5px;
+    box-shadow: 0px 6px 31px rgba(101, 101, 101, 0.6);
+    transition: all .3s;
+}
+
+.main .app_form .app_controlbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 29px;
+    background-color: #fff;
+    border-radius: 9px 9px 0px 0px;
+}
+
+.main .app_form .app_controlbar .app_logo {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 80px;
+    height: 100%;
+    /* background-color: #f24242; */
+    font-size: 11px;
+}
+
+.main .app_form .app_controlbar .app_logo_img {
+    width: 18px;
+    height: 18px;
+    background-image: url(imgs/logo.jpg);
+    background-size: contain;
+    border-radius: 3px;
+}
+
+.main .app_form .app_control {
+    height: 100%;
+    /* background-color: #f24242; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main .app_form .app_control .btn {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 46px;
+    height: 28px;
+    float: left;
+    /* background-color: rgba(46, 46, 214,.4); */
+    transition: all .6s;
+}
+
+.main .app_form .app_control .close_btn {
+    font-size: 26px;
+    color: #575757;
+    font-weight: 100;
+    border-radius: 0px 7px 0px 0px;
+}
+
+.main .app_form .app_control .mini_btn span {
+    width: 11px;
+    border-bottom: #575757 solid 1px;
+}
+
+.main .app_form .app_control .max_btn span {
+    width: 8px;
+    height: 8px;
+    border: #575757 solid 1.5px;
+    border-radius: 2px;
+}
+
+.main .app_form .app_control .close_btn span {
+    transform: rotate(45deg);
+}
+
+.main .app_form .app_control .mini_btn:hover {
+    background-color: #e8e8e8;
+}
+
+.main .app_form .app_control .max_btn:hover {
+    background-color: #e8e8e8;
+}
+
+.main .app_form .app_control .close_btn:hover {
+    background-color: #c50b0b;
+    color: #eaeaea;
+}
+
+.main .app_form .app_form_panel {
+    width: 100%;
+    height: 474px;
+    /* background-color: rgba(26, 181, 26,.3); */
+    border-radius: 0 0 8px 8px;
+    transition: all .3s;
+    /* animation: changeMode 8s cubic-bezier(0.68,-0.55,0.27,1.55) infinite alternate; */
+}
+
+.main .app_form .app_form_panel_darkMode {
+    width: 100%;
+    height: 474px;
+    color: #fff;
+    background-color: black;
+    /* background-color: rgba(26, 181, 26,.3); */
+    border-radius: 0 0 8px 8px;
+    /* transition: all .3s; */
+    /* animation: changeMode 8s cubic-bezier(0.68,-0.55,0.27,1.55) infinite alternate; */
+}
+
+/* .main .app_form .app_form_panel:hover {
+    color: #fff;
+    background-color: black;
+} */
+
+/* @keyframes changeMode {
+    from {
+        color: #fff;
+        background-color: black;
+    }
+
+    to {
+        color: #575757;
+        background-color: #efefef;
+    }
+} */
+
+.main .app_form .app_top_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 43px;
+    /* background-color: #cda355; */
+}
+
+.main .app_form .app_top_buttons li {
+    float: left;
+    width: 85px;
+    height: 27px;
+    text-align: center;
+    line-height: 27px;
+    border: #b8b8b8 solid 1px;
+    font-size: 12px;
+    font-weight: 400;
+    transition: all .3s;
+}
+
+.main .app_form .app_top_buttons li:hover {
+    background-color: #e1e1e1;
+}
+
+.main .app_form .app_top_buttons .app_top_buttons_left {
+    margin-left: 8px;
+}
+
+.main .app_form .app_top_buttons .app_top_buttons_right {
+    margin-right: 8px;
+}
+
+.main .app_form .app_top_buttons .app_top_buttons_left li {
+    margin-right: 3px;
+}
+
+.main .app_form .app_top_buttons .app_top_buttons_right li {
+    margin-left: 4px;
+}
+
+.main .app_form .app_name{
+    margin-top: 88px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    /* background-color: rgba(231, 208, 75,.3); */
+}
+
+.main .app_form .app_name span{
+    transition: all .3s;
+}
+
+.main .app_form .app_name span:nth-child(1){
+    width: 380px;
+    height: 120px;
+    text-align: center;
+    line-height: 125px;
+    border: #b8b8b8 solid 1px;
+    font-size: 45px;
+    font-weight: 600;
+}
+
+.main .app_form .app_name span:nth-child(2){
+    width: 113px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border: #b8b8b8 solid 1px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.main .app_form .app_name span:hover{
+    background-color: #e1e1e1;
+}
+
+
+/* 网页最底部样式 */
+.footer {
+    margin-top: 18vh;
+    width: 100%;
+    height: 200px;
+    line-height: 200px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 100;
+    text-align: center;
+    background-color: #6ac0c2;
+}
+
+/* 响应式布局 */
+@media screen and (max-width: 600px) {
+
+    .head .nav {
+        display: none;
+    }
+
+    .head .nav_mobile_phone {
+        display: inline-block;
+    }
+
+    .logo {
+        margin-left: 25px;
+    }
+
+    .logo .logo_label {
+        display: none;
+    }
+
+    .nav {
+        float: left;
+    }
+
+    .nav a {
+        font-size: 13px;
+        width: 60px;
+        height: 35px;
+        line-height: 35px;
+    }
+
+    .main .draw {
+        font-size: 25px;
+        margin-top: 5vh;
+    }
+
+    .main .downloadButton {
+        width: 110px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+        font-weight: 500;
+        border-radius: 26px;
+    }
+
+    .main .Mode {
+        height: 700px;
+    }
+
+    .main .Mode .mode_box {
+        width: 250px;
+        height: 160px;
+    }
+
+    .main .Mode .mode_box .ico {
+        font-size: 66px;
+    }
+
+    .main .Mode .mode_box .text {
+        padding: 0px 17px 0px 17px;
+        font-size: 13px;
+    }
+
+    .main .app_form {
+        margin-top: 3vh;
+        transform: scale(.4);
+    }
+
+    .footer{
+        margin-top: 3vh;
+        height: 80px;
+        font-size: 9px;
+        line-height: 80px;
+    }
+
+}
